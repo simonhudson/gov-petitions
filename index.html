@@ -15,13 +15,18 @@
 <div class="wrap" id="main-wrap">
 
     <div class="ko-petition-list">
-        <h1><a data-bind="text: petitionData().action, attr: { 'href': petitionData().link }"></a></h1>
-        <p><strong data-bind="text: petitionData().signature_count"></strong> signatures so far</p> 
-        <!-- ko if: petitionData().background -->
-        <p data-bind="text: petitionData().background"></p>
+        <!-- ko if: error() !== '' -->
+            <p data-bind="text: error"></p>
         <!-- /ko -->
-        <!-- ko if: petitionData().additional_details -->
-        <p data-bind="text: petitionData().additional_details"></p>
+        <!-- ko if: error() === '' -->
+            <h1><a data-bind="text: petitionData().action, attr: { 'href': petitionData().link }"></a></h1>
+            <p><strong data-bind="text: petitionData().signature_count"></strong> signatures so far</p> 
+            <!-- ko if: petitionData().background -->
+                <p data-bind="text: petitionData().background"></p>
+            <!-- /ko -->
+            <!-- ko if: petitionData().additional_details -->
+                <p data-bind="text: petitionData().additional_details"></p>
+            <!-- /ko -->
         <!-- /ko -->
     </div>
 
