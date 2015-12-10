@@ -19,8 +19,12 @@
             <p data-bind="text: error"></p>
         <!-- /ko -->
         <!-- ko if: error() === '' -->
+            <!-- ko if: data().action -->
             <h1><a data-bind="text: data().action, attr: { 'href': data().link }"></a></h1>
-            <p><strong data-bind="text: data().signature_count"></strong> signatures since <span data-bind="text: new Date(data().open_at)"></span></p> 
+            <!-- /ko -->
+            <!-- ko if: data().open_at -->
+            <p><strong data-bind="text: data().signature_count"></strong> signatures since <span data-bind="text: new Date(data().open_at)"></span></p>
+            <!-- /ko -->
             <!-- ko if: data().background -->
                 <p data-bind="text: data().background"></p>
             <!-- /ko -->
