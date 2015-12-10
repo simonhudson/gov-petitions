@@ -15,8 +15,8 @@
 <div class="wrap" id="main-wrap">
 
     <form id="petition-search">
-        <label for="petition-search__q">Find petition</label>
-        <input id="petition-search__q" placeholder="Enter Petition ID" required type="search" />
+        <label for="petition-search__q">Petition ID</label>
+        <input id="petition-search__q" placeholder="114003" required type="search" />
         <input type="submit" value="Search" />
     </form>
 
@@ -26,7 +26,7 @@
         <!-- /ko -->
         <!-- ko if: error() === '' -->
             <!-- ko if: data().action -->
-            <h1><a data-bind="text: data().action, attr: { 'href': data().link }"></a></h1>
+            <h1><a data-bind="text: data().action, attr: { 'href': data().link, 'target': '_blank' }"></a></h1>
             <!-- /ko -->
             <!-- ko if: data().open_at && data().signature_count -->
             <p><strong data-bind="text: data().signature_count + ' signatures since '"></strong><span data-bind="text: new Date(data().open_at)"></span></p>

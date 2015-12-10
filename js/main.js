@@ -21,26 +21,27 @@ var _s_Petition = {
 var Petition = {
 
     element: $('.ko-petition-list'),
+    searchId: null,
 
     init: function() {
         if (Petition.element.length) {
-            var id = $('#petition-search__q').val();
-            Petition.koBind(id);
+            Petition.searchId = $('#petition-search__q').val();
+            Petition.koBind();
         }
     },
 
-    koBind: function(id) {
-        ko.applyBindings(new Petition.ViewModel(id), Petition.element[0]);
+    koBind: function() {
+        ko.applyBindings(new Petition.ViewModel(), Petition.element[0]);
     },
 
-    ViewModel: function(id) {
+    ViewModel: function() {
         var self = this;
         self.data = ko.observableArray([]);
         self.error = ko.observable('');
 
-        self.getData = function(id, callback) {
+        self.getData = function(callback) {
             $.ajax({
-                url: 'https://petition.parliament.uk/petitions/' + id + '.json',
+                url: 'https://petition.parliament.uk/petitions/' + Petition.searchId + '.json',
                 method: 'get',
                 success: function(data) {
                     callback(data);
@@ -64,7 +65,7 @@ var Petition = {
         };
 
         self.doGet = function() {
-            self.getData(id, self.createModel);
+            self.getData(self.createModel);
         };
 
         self.doGet();
