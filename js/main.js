@@ -23,15 +23,17 @@ var Petition = {
     element: $('.ko-petition-list'),
 
     init: function() {
-        if (Petition.element.length)
-            Petition.koBind();
+        if (Petition.element.length) {
+            var id = $('#petition-search__q').val();
+            Petition.koBind(id);
+        }
     },
 
-    koBind: function() {
-        ko.applyBindings(new Petition.ViewModel(), Petition.element[0]);
+    koBind: function(id) {
+        ko.applyBindings(new Petition.ViewModel(id), Petition.element[0]);
     },
 
-    ViewModel: function() {
+    ViewModel: function(id) {
         var self = this;
         self.data = ko.observableArray([]);
         self.error = ko.observable('');
@@ -62,11 +64,14 @@ var Petition = {
         };
 
         self.doGet = function() {
-            self.getData(114003, self.createModel);
+            self.getData(id, self.createModel);
         };
 
         self.doGet();
     }
 
 };
-$(document).ready(Petition.init);
+$('#petition-search').on('submit', function() {
+    Petition.init();
+    return false;
+});

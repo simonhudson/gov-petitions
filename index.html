@@ -14,6 +14,12 @@
 </noscript>
 <div class="wrap" id="main-wrap">
 
+    <form id="petition-search">
+        <label for="petition-search__q">Find petition</label>
+        <input id="petition-search__q" placeholder="Enter Petition ID" required type="search" />
+        <input type="submit" value="Search" />
+    </form>
+
     <div class="ko-petition-list">
         <!-- ko if: error() !== '' -->
             <p data-bind="text: error"></p>
@@ -22,8 +28,8 @@
             <!-- ko if: data().action -->
             <h1><a data-bind="text: data().action, attr: { 'href': data().link }"></a></h1>
             <!-- /ko -->
-            <!-- ko if: data().open_at -->
-            <p><strong data-bind="text: data().signature_count"></strong> signatures since <span data-bind="text: new Date(data().open_at)"></span></p>
+            <!-- ko if: data().open_at && data().signature_count -->
+            <p><strong data-bind="text: data().signature_count + ' signatures since '"></strong><span data-bind="text: new Date(data().open_at)"></span></p>
             <!-- /ko -->
             <!-- ko if: data().background -->
                 <p data-bind="text: data().background"></p>
