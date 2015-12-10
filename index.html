@@ -20,7 +20,7 @@
         <!-- /ko -->
         <!-- ko if: error() === '' -->
             <h1><a data-bind="text: data().action, attr: { 'href': data().link }"></a></h1>
-            <p><strong data-bind="text: data().signature_count"></strong> signatures since <span data-bind="text: data().open_at__format"></span></p> 
+            <p><strong data-bind="text: data().signature_count"></strong> signatures since <span data-bind="text: new Date(data().open_at)"></span></p> 
             <!-- ko if: data().background -->
                 <p data-bind="text: data().background"></p>
             <!-- /ko -->

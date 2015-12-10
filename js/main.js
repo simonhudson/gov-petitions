@@ -1,10 +1,10 @@
 /*
 Petition
 */
-var Petition = {
+var _s_Petition = {
 
     createModel: function(data) {
-        return new Petition.Model(data);
+        return new _s_Petition.Model(data);
     },
 
     Model: function(data) {
@@ -14,23 +14,21 @@ var Petition = {
         for (var key in data.data.attributes) {
             self[key] = data.data.attributes[key];
         }
-        self.open_at__format = new Date(self.open_at);
-        console.log(self);
     }
     
 };
 
-var PetitionList = {
+var Petition = {
 
     element: $('.ko-petition-list'),
 
     init: function() {
-        if (PetitionList.element.length)
-            PetitionList.koBind();
+        if (Petition.element.length)
+            Petition.koBind();
     },
 
     koBind: function() {
-        ko.applyBindings(new PetitionList.ViewModel(), PetitionList.element[0]);
+        ko.applyBindings(new Petition.ViewModel(), Petition.element[0]);
     },
 
     ViewModel: function() {
@@ -52,7 +50,7 @@ var PetitionList = {
         };
 
         self.createModel = function(data) {
-            var petitionData = Petition.createModel(data);
+            var petitionData = _s_Petition.createModel(data);
             self.data(petitionData);
             self.doPoll();
         };
@@ -71,4 +69,4 @@ var PetitionList = {
     }
 
 };
-$(document).ready(PetitionList.init);
+$(document).ready(Petition.init);
