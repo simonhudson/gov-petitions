@@ -14,6 +14,8 @@ var Petition = {
         for (var key in data.data.attributes) {
             self[key] = data.data.attributes[key];
         }
+        self.open_at__format = new Date(self.open_at);
+        console.log(self);
     }
     
 };
@@ -33,7 +35,7 @@ var PetitionList = {
 
     ViewModel: function() {
         var self = this;
-        self.petitionData = ko.observableArray([]);
+        self.data = ko.observableArray([]);
         self.error = ko.observable('');
 
         self.getData = function(id, callback) {
@@ -51,7 +53,7 @@ var PetitionList = {
 
         self.createModel = function(data) {
             var petitionData = Petition.createModel(data);
-            self.petitionData(petitionData);
+            self.data(petitionData);
             self.doPoll();
         };
 

@@ -19,13 +19,13 @@
             <p data-bind="text: error"></p>
         <!-- /ko -->
         <!-- ko if: error() === '' -->
-            <h1><a data-bind="text: petitionData().action, attr: { 'href': petitionData().link }"></a></h1>
-            <p><strong data-bind="text: petitionData().signature_count"></strong> signatures so far</p> 
-            <!-- ko if: petitionData().background -->
-                <p data-bind="text: petitionData().background"></p>
+            <h1><a data-bind="text: data().action, attr: { 'href': data().link }"></a></h1>
+            <p><strong data-bind="text: data().signature_count"></strong> signatures since <span data-bind="text: data().open_at__format"></span></p> 
+            <!-- ko if: data().background -->
+                <p data-bind="text: data().background"></p>
             <!-- /ko -->
-            <!-- ko if: petitionData().additional_details -->
-                <p data-bind="text: petitionData().additional_details"></p>
+            <!-- ko if: data().additional_details -->
+                <p data-bind="text: data().additional_details"></p>
             <!-- /ko -->
         <!-- /ko -->
     </div>
