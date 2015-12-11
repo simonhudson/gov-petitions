@@ -1,0 +1,9 @@
+a {
+    border-bottom:1px solid #ddd;
+    color:#008800;
+    text-decoration:none;
+}
+a:hover,
+a:focus {
+    border-bottom:1px solid #008800;
+}

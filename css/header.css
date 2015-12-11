@@ -1,0 +1,21 @@
+header {
+    background:#008800;
+    margin-bottom:2em;
+    padding:1em 0;
+}
+@media all and (min-width: 1024px) {
+    header {
+        padding:2em 0;   
+    }
+}
+.page-title {
+    color:#fff;
+    font-size:1.8em;
+    line-height:1em;
+    padding:0;
+}
+@media all and (min-width: 1024px) {
+    .page-title {
+        font-size:2.2em;
+    }
+}

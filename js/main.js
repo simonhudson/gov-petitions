@@ -25,7 +25,7 @@ var Petition = {
 
     init: function() {
         if (Petition.element.length) {
-            Petition.searchId = $('#petition-search__q').val();
+            Petition.searchId = $('#petition-search__q').val() ? $('#petition-search__q').val() : 114003;
             Petition.koBind();
         }
     },
@@ -72,7 +72,8 @@ var Petition = {
     }
 
 };
-$('#petition-search').on('submit', function() {
-    Petition.init();
-    return false;
-});
+$(document).ready(Petition.init);
+// $('#petition-search').on('submit', function() {
+//     Petition.init();
+//     return false;
+// });

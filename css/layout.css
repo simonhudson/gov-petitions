@@ -1,0 +1,11 @@
+.wrap {
+    padding:0 2em;
+    width:100%;
+}
+@media all and (min-width: 1024px) {
+    .wrap {
+        margin:0 auto;
+        padding:0;
+        width:60%;
+    }
+}

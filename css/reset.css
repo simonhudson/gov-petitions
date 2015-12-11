@@ -10,9 +10,9 @@ html {
 }
 body {
     background:#fff;
-    color:$palette-body;
-    font-family:$font-sans;
-    font-size:pxToEm($base-font-size * 1.4);
+    color:#333;
+    font-family:'opensans_regular', arial, helvetica, sans-serif;
+    font-size:1.4em
 }
 html,
 body {
@@ -30,16 +30,12 @@ pre {
     font-size:inherit;
 }
 strong {
-    @include strong();
-}
-pre,
-code {
-    display:inline;
-    font-family:$font-code;
+    font-family: 'opensans_semibold', 'opensans_regular', arial, helvetica, sans-serif;;
+    font-weight:normal;
 }
 abbr,
 acronym {
-    border-bottom:1px dotted $palette-body;
+    border-bottom:1px dotted #333;
     cursor:help;
     font-family:inherit;
 }
