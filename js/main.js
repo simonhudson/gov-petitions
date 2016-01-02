@@ -20,7 +20,7 @@ var _s_Petition = {
 
 var Petition = {
 
-    element: $('.ko-petition-list'),
+    element: $('.ko-petition-detail'),
     searchId: null,
 
     init: function() {
@@ -72,7 +72,61 @@ var Petition = {
     }
 
 };
+
+var Petitions = {
+
+    element: $('.ko-petition-list'),
+
+    init: function() {
+        if (Petitions.element.length)
+            Petitions.koBind();
+    },
+
+    koBind: function() {
+        ko.applyBindings(new Petitions.ViewModel(), Petitions.element[0]);
+    },
+
+    ViewModel: function() {
+        var self = this;
+        self.data = ko.observableArray([]);
+        self.error = ko.observable('');
+
+        self.getData = function(callback, limit, state) {
+            state = state ? state : 'open';
+            limit = limit ? limit : 10;
+            $.ajax({
+                url: 'https://petition.parliament.uk/petitions.json?state=' + state,
+                method: 'get',
+                success: function(data) {
+                    callback(data, limit);
+                },
+                error: function(data) {
+                    self.error('Could not retrieve data.');
+                }
+            });
+        };
+
+        self.createModel = function(data, limit) {
+            for (var i in data.data) {
+                self.data(data.data);
+            }
+            for (var i in self.data()) {
+                console.log(self.data()[i]);
+            }
+
+        };
+
+        self.doGet = function() {
+            self.getData(self.createModel);
+        };
+
+        self.doGet();
+    }
+
+};
+$(document).ready(Petitions.init);
 $(document).ready(Petition.init);
+
 // $('#petition-search').on('submit', function() {
 //     Petition.init();
 //     return false;

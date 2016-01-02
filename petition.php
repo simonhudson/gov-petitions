@@ -6,7 +6,7 @@
         <input type="submit" value="Search" />
     </form>
 
-    <div class="ko-petition-list petition-details">
+    <div class="ko-petition-detail petition-detail">
         <!-- ko if: error() !== '' -->
             <p data-bind="text: error"></p>
         <!-- /ko -->
