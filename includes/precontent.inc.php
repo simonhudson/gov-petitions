@@ -15,8 +15,13 @@
 </noscript>
 
 <header>
-    <div class="wrap">
-        <p class="page-title">Petitions</p>
+    <div class="wrap header__wrap">
+        <p class="page-title"><a class="page-title__link" href="./">Petitions</a></p>
+        <form class="petition-search" id="petition-search">
+            <label for="petition-search__q">Search for petition</label>
+            <input id="petition-search__q" placeholder="Petition ID (e.g 114003)" required type="search" />
+            <input type="submit" value="Search" />
+        </form>
     </div>
 </header>
 

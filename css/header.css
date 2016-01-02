@@ -3,6 +3,9 @@ header {
     margin-bottom:2em;
     padding:1em 0;
 }
+.header__wrap {
+    position:relative;
+}
 @media all and (min-width: 1024px) {
     header {
         padding:2em 0;   
@@ -18,4 +21,8 @@ header {
     .page-title {
         font-size:2.2em;
     }
+}
+.page-title__link {
+    border:0;
+    color:#fff;
 }

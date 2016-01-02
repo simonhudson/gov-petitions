@@ -18,20 +18,20 @@ var _s_Petition = {
     
 };
 
-var Petition = {
+var PetitionDetails = {
 
     element: $('.ko-petition-detail'),
     searchId: null,
 
     init: function() {
-        if (Petition.element.length) {
-            Petition.searchId = $('#petition-search__q').val() ? $('#petition-search__q').val() : 114003;
-            Petition.koBind();
+        if (PetitionDetails.element.length) {
+            PetitionDetails.searchId = $('#petition-search__q').val() ? $('#petition-search__q').val() : Url.getQueryVariable('id');
+            PetitionDetails.koBind();
         }
     },
 
     koBind: function() {
-        ko.applyBindings(new Petition.ViewModel(), Petition.element[0]);
+        ko.applyBindings(new PetitionDetails.ViewModel(), PetitionDetails.element[0]);
     },
 
     ViewModel: function() {
@@ -41,7 +41,7 @@ var Petition = {
 
         self.getData = function(callback) {
             $.ajax({
-                url: 'https://petition.parliament.uk/petitions/' + Petition.searchId + '.json',
+                url: 'https://petition.parliament.uk/petitions/' + PetitionDetails.searchId + '.json',
                 method: 'get',
                 success: function(data) {
                     callback(data);
@@ -125,7 +125,7 @@ var Petitions = {
 
 };
 $(document).ready(Petitions.init);
-$(document).ready(Petition.init);
+$(document).ready(PetitionDetails.init);
 
 // $('#petition-search').on('submit', function() {
 //     Petition.init();
