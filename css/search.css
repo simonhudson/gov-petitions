@@ -1,7 +1,10 @@
-.petition-search {
-    position:absolute;
-    right:0;
-    top:-10px;
+
+@media all and (min-width: 768px) {
+    .petition-search {
+        position:absolute;
+        right:0;
+        top:0;
+    }
 }
 .search__label {
     color:#fff;
