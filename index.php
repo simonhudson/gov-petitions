@@ -3,7 +3,7 @@
     <h1>Most popular petitions</h1>
 
     <div class="ko-petition-list petition-list__wrap">
-        <ul>
+        <ol class="petition-list__list">
             <!-- ko if: error() === '' -->
                 <!-- ko foreach: data -->
                     <li class="petition-list__item">
@@ -12,7 +12,7 @@
                     </li>
                 <!-- /ko -->
             <!-- /ko -->
-        </ul>
+        </ol>
     </div>
 
 <?php include('includes/postcontent.inc.php'); ?>

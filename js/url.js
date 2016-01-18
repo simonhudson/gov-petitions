@@ -13,6 +13,14 @@ var Url = {
             }
         }
         return(false);
+    },
+
+    updateUrlWithoutReload: function(newUrl, newTitle, state) {
+        if (history.pushState) {
+            newTitle = newTitle ? newTitle : null;
+            state = state ? state : null;
+            history.pushState(state, newTitle, newUrl);
+        }
     }
 
 };

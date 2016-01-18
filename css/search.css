@@ -1,5 +1,15 @@
 .petition-search {
     position:absolute;
     right:0;
-    top:0;
+    top:-10px;
+}
+.search__label {
+    color:#fff;
+    display:block;
+}
+.search__input,
+.search__submit {
+    border:1px solid #ddd;
+    border-radius:2px;
+    padding:5px;
 }

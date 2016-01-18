@@ -5,6 +5,7 @@ p {
 h1 {
     font-family: 'opensans_regular', arial, helvetica, sans-serif;
     font-weight:normal;
+    margin-bottom:1em;
 }
 .feint {
     color:#8a8a8a;

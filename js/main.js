@@ -113,7 +113,13 @@ var Petitions = {
             for (var i in self.data()) {
                 console.log(self.data()[i]);
             }
+            self.doPoll();
+        };
 
+        self.doPoll = function() {
+            setTimeout(function() {
+                self.doGet();
+            }, 3000 );
         };
 
         self.doGet = function() {
@@ -127,7 +133,8 @@ var Petitions = {
 $(document).ready(Petitions.init);
 $(document).ready(PetitionDetails.init);
 
-// $('#petition-search').on('submit', function() {
-//     Petition.init();
-//     return false;
-// });
+$('#petition-search').on('submit', function() {
+    Url.updateUrlWithoutReload('petition.php?id=123');
+    Petition.init();
+    return false;
+});
