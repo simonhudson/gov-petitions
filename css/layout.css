@@ -9,3 +9,10 @@
         width:60%;
     }
 }
+.data-area {
+    padding:2em 0;
+}
+.loader-wrap {
+    display:block;
+    text-align:center;
+}

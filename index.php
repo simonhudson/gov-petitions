@@ -2,7 +2,8 @@
 
     <h1>Most popular petitions</h1>
 
-    <div class="ko-petition-list petition-list__wrap">
+    <div class="loader-wrap"></div>
+    <div class="ko-petition-list petition-list__wrap data-area">
         <ol class="petition-list__list">
             <!-- ko if: error() === '' -->
                 <!-- ko foreach: data -->

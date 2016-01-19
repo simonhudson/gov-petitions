@@ -1,6 +1,7 @@
 <?php include('includes/precontent.inc.php'); ?>
 
-    <div class="ko-petition-detail petition-detail">
+    <div class="loader-wrap"></div>
+    <div class="ko-petition-detail petition-detail data-area">
         <!-- ko if: error() !== '' -->
             <p data-bind="text: error"></p>
         <!-- /ko -->

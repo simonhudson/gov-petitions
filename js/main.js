@@ -1,3 +1,12 @@
+function showLoader() {
+    removeLoader();
+    $('.loader-wrap').append($('<span class="fa fa-spinner fa-spin fa-3x"></span>'));
+}
+
+function removeLoader() {
+    $('.loader-wrap').find('.fa-spinner').remove();
+}
+
 /*
 Petition
 */
@@ -55,16 +64,19 @@ var PetitionDetails = {
         self.createModel = function(data) {
             var petitionData = _s_Petition.createModel(data);
             self.data(petitionData);
+            removeLoader();
             self.doPoll();
         };
 
         self.doPoll = function() {
             setTimeout(function() {
-                self.doGet();
+                self.doGet(true);
             }, 3000 );
         };
 
-        self.doGet = function() {
+        self.doGet = function(isPoll) {
+            if (!isPoll)
+                showLoader();
             self.getData(self.createModel);
         };
 
@@ -110,19 +122,22 @@ var Petitions = {
             for (var i in data.data) {
                 self.data(data.data);
             }
-            for (var i in self.data()) {
-                console.log(self.data()[i]);
+            for (var x in self.data()) {
+                console.log(self.data()[x]);
             }
+            removeLoader();
             self.doPoll();
         };
 
         self.doPoll = function() {
             setTimeout(function() {
-                self.doGet();
+                self.doGet(true);
             }, 3000 );
         };
 
-        self.doGet = function() {
+        self.doGet = function(isPoll) {
+            if (!isPoll)
+                showLoader();
             self.getData(self.createModel);
         };
 
