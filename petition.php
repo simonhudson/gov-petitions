@@ -7,10 +7,10 @@
         <!-- /ko -->
         <!-- ko if: error() === '' -->
             <!-- ko if: data().action -->
-            <h1 class="petition-title"><a data-bind="text: data().action, attr: { 'href': data().link, 'target': '_blank' }"></a></h1>
+            <h1 class="petition-title" data-bind="text: data().action"></h1>
             <!-- /ko -->
             <!-- ko if: data().open_at && data().signature_count -->
-            <p class="sig-count"><strong class="sig-count-number" data-bind="text: data().signature_count"></strong><span data-bind="text: 'signatures'"></span></p>
+            <p class="sig-count"><span class="sig-count-number" data-bind="text: data().signature_count"></span><span data-bind="text: 'signatures'"></span></p>
             <!-- /ko -->
             <!-- ko if: data().background -->
                 <p data-bind="text: data().background"></p>
