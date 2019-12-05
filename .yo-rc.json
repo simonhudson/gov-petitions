@@ -1,0 +1,7 @@
+{
+  "generator-react": {
+    "projectName": "Gov petitions",
+    "projectNameSlug": "gov-petitions",
+    "copyUtilities": "y"
+  }
+}
