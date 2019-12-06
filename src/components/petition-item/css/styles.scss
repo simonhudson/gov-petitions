@@ -1,0 +1,17 @@
+@import 'assets/css/styles';
+
+.petition-item {
+    @include border-radius();
+    @include box-shadow();
+    @include padding();
+    background: palette(primary, white);
+
+    &:not(:last-of-type) {
+        @include margin-b();
+    }
+
+}
+
+.petition-item__title {
+    @include h4();
+}

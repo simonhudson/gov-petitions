@@ -5,7 +5,7 @@ import '~/assets/css/styles.scss';
 import Header from '~/components/header';
 import Footer from '~/components/footer';
 import PetitionsList from '~/components/petitions-list';
-import { getAllPetitions, getPetition } from '~/functions';
+import { getAllPetitions } from '~/functions';
 
 class App extends Component {
 
@@ -25,11 +25,11 @@ class App extends Component {
     render = () => {
 
         return (
-            <>
+            <div className="wrap">
                 <Header />
                 <PetitionsList petitions={this.state.petitions} />
                 <Footer />
-            </>
+            </div>
         );
 
     }

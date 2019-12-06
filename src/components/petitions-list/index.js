@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import PetitionItem from '~/components/petition-item';
+import './css/styles.scss';
 
 const PetitionsList = props => {
 
@@ -8,7 +10,7 @@ const PetitionsList = props => {
 
 	return (
 		<ul className="petitions-list" data-test="petitions-list">
-			{props.petitions.map((petition, index) => <li className="petitions-list__item" key={index}>{petition.label._value}</li>)};
+			{props.petitions.map((petition, index) => <PetitionItem key={index} petition={petition} />)};
 		</ul>
 	);
 

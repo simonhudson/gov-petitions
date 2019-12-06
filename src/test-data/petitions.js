@@ -3,7 +3,7 @@
 module.exports = [
     {
         label: {
-            _value: 'Petition 1'
+            _value: 'Petition title 1'
         }
     }
 ];
