@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import '~/assets/css/styles.scss';
 import Header from '~/components/header';
 import Footer from '~/components/footer';
+import PetitionsList from '~/components/petitions-list';
 import { getAllPetitions, getPetition } from '~/functions';
 
 class App extends Component {
@@ -23,17 +24,14 @@ class App extends Component {
 
     render = () => {
 
-        const { state } = this;
-
-        if (!state.petitions) return null;
-
         return (
             <>
-                {state.petitions.map((petition, index) => {
-                    return (<p key={index}>{petition.label._value}</p>);
-                })}
+                <Header />
+                <PetitionsList petitions={this.state.petitions} />
+                <Footer />
             </>
         );
+
     }
 }
 
